@@ -18,22 +18,23 @@ if(fileParam){
              if(!hasJoined) {
                  User.setProperty("pending_file", fileParam, "string");
                  let btn = [
-                   [{title: "🔵 Join Channel", url: fChannelLink}], 
-                   [{title: "🟢 Joined", command: "/checkJoined"}]
+                   [{title: "🔐 Join Required Channel", url: fChannelLink}], 
+                   [{title: "✅ I Have Joined", command: "/checkJoined"}]
                  ];
-                 Bot.sendInlineKeyboard(btn, "⚠️ *Access Denied!*\n\nYou must join our channel to get this file.");
+                 let lockMsg = "🛡️ *Access Restricted*\n\nTo maintain security and access this file, please join our official channel first.\n\n👇 *Click below to join, then verify your access.*";
+                 Bot.sendInlineKeyboard(btn, lockMsg, {parse_mode: "Markdown"});
                  return;
              }
         }
         Bot.runCommand("/sendFile " + fileParam);
     } else {
-        Bot.sendMessage("❌ File not found or link is invalid.");
+        Bot.sendMessage("❌ *Invalid or Expired Link*\nThe file you are looking for does not exist or has been removed.", {parse_mode: "Markdown"});
     }
 } else {
     let btns = [
-       [{title: "📤 Upload File", command: "/upload"}],
-       [{title: "🤖 Clone Bot (Make your own bot)", command: "/clone"}],
-       [{title: "🔵 Support", url: "https://t.me/technicalKali"}]
+       [{title: "📤 Upload File", command: "/upload"}, {title: "🤖 Create Clone", command: "/clone"}],
+       [{title: "🛠️ Developer Support", url: "https://t.me/technicalKali"}]
     ];
-    Bot.sendInlineKeyboard(btns, "👋 *Welcome to File Sharing Bot!*\n\nI can securely store your files and generate shareable links.\n\n👇 **Click 'Upload File' or just send any file here!**");
+    let welcomeMsg = "🌟 *Welcome to Advanced File Share* 🌟\n\nI am a high-speed, secure bot designed to store your files and generate shareable links instantly.\n\n*How it works:*\n1️⃣ Send any file, photo, video, or audio.\n2️⃣ I will encrypt it into my database.\n3️⃣ You get a secure, permanent shareable link.\n\n👇 *Select an option below or simply forward a file to begin.*";
+    Bot.sendInlineKeyboard(btns, welcomeMsg, {parse_mode: "Markdown"});
 }

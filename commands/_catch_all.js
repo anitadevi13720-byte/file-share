@@ -19,14 +19,12 @@ if(!exists){
 function makeId(length) {
     let result = '';
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return result;
 }
 
-// Handle File Uploads
 if(request.document || request.video || request.audio || request.photo){
     let fileId = "";
     let type = "document";
@@ -41,13 +39,14 @@ if(request.document || request.video || request.audio || request.photo){
 
     let link = "https://t.me/" + bot.name + "?start=" + uniqueId;
     
-    let btn = [[{title: "🟢 Share File", url: "https://t.me/share/url?url=" + link}]];
-    Bot.sendInlineKeyboard(btn, "✅ *File Saved Successfully!*\n\n🔗 Your Shareable Link:\n`" + link + "`", {parse_mode: "Markdown"});
+    let btn = [[{title: "🔗 Share File Link", url: "https://t.me/share/url?url=" + link}]];
+    let successMsg = "✅ *File Processed Successfully!*\n\n🛡️ *Status:* Secured\n🗂️ *File ID:* `" + uniqueId + "`\n\n🔗 *Your Permanent Link:*\n`" + link + "`\n\n_Tap the button below to forward this link to your friends or channels._";
+    Bot.sendInlineKeyboard(btn, successMsg, {parse_mode: "Markdown"});
 
     // Storage Channel Logic
     let storageChannel = Bot.getProperty("storage_channel_id");
     if(storageChannel){
-        let caption = "📤 **New File Uploaded**\n👤 **By:** @" + (user.username || "None") + "\n🆔 **User ID:** `" + user.telegramid + "`\n🔗 **File Link:** `" + link + "`";
+        let caption = "📥 *New Server Upload*\n\n👤 *Uploader:* @" + (user.username || "Unknown") + "\n🆔 *User ID:* `" + user.telegramid + "`\n🔗 *Generated Link:* `" + link + "`";
         
         if(type == "document") Api.sendDocument({chat_id: storageChannel, document: fileId, caption: caption, parse_mode: "Markdown"});
         else if(type == "video") Api.sendVideo({chat_id: storageChannel, video: fileId, caption: caption, parse_mode: "Markdown"});
