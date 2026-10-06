@@ -1,7 +1,7 @@
 /*CMD
   command: WaitStorage
   help: 
-  need_reply: false
+  need_reply: true
   auto_retry_time: 
   folder: 
 CMD*/

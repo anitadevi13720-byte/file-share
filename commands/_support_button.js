@@ -5,4 +5,5 @@
   auto_retry_time: 
   folder: 
 CMD*/
-Bot.sendMessage("🛠️ *Developer Support*\n\nFor any issues or custom bot development, contact: @technicalKali", {parse_mode: "Markdown"});
+let supportUser = Bot.getProperty("support_username", "Codevexa.t.me");
+Bot.sendMessage("🛠️ *Developer Support*\n\nFor any issues or custom bot development, contact: " + supportUser, {parse_mode: "Markdown"});

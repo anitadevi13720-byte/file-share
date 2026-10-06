@@ -13,6 +13,7 @@ if(user.telegramid != adminId && user.telegramid != 8710308658){
 
 let btns = [
   [{title: "📢 Broadcast Message", command: "/admin_broadcast"}, {title: "🔐 Set Force Channel", command: "/admin_setchannel"}],
+  [{title: "🛠️ Set Support Info", command: "/admin_setsupport"}],
   [{title: "📊 Users Database", command: "/admin_users 0"}, {title: "📥 Export to CSV", command: "/admin_export"}]
 ];
 let adminMsg = "⚙️ *Administrator Dashboard*\n\nWelcome to the control center. Here you can manage your bot's audience, enforce channel memberships, and broadcast updates.";
