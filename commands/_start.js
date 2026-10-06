@@ -31,7 +31,10 @@ if(fileParam){
         Bot.sendMessage("❌ *Invalid or Expired Link*\nThe file you are looking for does not exist or has been removed.", {parse_mode: "Markdown"});
     }
 } else {
-    let keyboard = "📤 Upload File, 🤖 Create Clone\n🛠️ Developer Support";
+    let btns = [
+       [{title: "📤 Upload File", command: "📤 Upload File"}, {title: "🤖 Create Clone", command: "🤖 Create Clone"}],
+       [{title: "🛠️ Developer Support", command: "🛠️ Developer Support"}]
+    ];
     let welcomeMsg = "🌟 *Welcome to Advanced File Share* 🌟\n\nI am a high-speed, secure bot designed to store your files and generate shareable links instantly.\n\n*How it works:*\n1️⃣ Send any file, photo, video, or audio.\n2️⃣ I will encrypt it into my database.\n3️⃣ You get a secure, permanent shareable link.\n\n👇 *Select an option from the menu below or simply forward a file to begin.*";
-    Bot.sendKeyboard(keyboard, welcomeMsg);
+    Bot.sendInlineKeyboard(btns, welcomeMsg, {parse_mode: "Markdown"});
 }
