@@ -6,4 +6,4 @@
   folder: 
 CMD*/
 Bot.sendMessage("Send Channel ID and User ID to demote.\nExample:\n`-100123456789 987654321`");
-Bot.runCommand("WaitDemote");
+Bot.run({command: "WaitDemote"});

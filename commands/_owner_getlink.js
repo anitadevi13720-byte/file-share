@@ -6,4 +6,4 @@
   folder: 
 CMD*/
 Bot.sendMessage("Send Channel ID to get Invite Link:");
-Bot.runCommand("WaitGetLink");
+Bot.run({command: "WaitGetLink"});

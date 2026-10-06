@@ -6,4 +6,4 @@
   folder: 
 CMD*/
 Bot.sendMessage("Send the support username or link (e.g. Codevexa.t.me or @myusername):");
-Bot.runCommand("WaitSupport");
+Bot.run({command: "WaitSupport"});

@@ -6,4 +6,4 @@
   folder: 
 CMD*/
 Bot.sendMessage("📣 Send the message you want to broadcast to all users:");
-Bot.runCommand("WaitBroadcast");
+Bot.run({command: "WaitBroadcast"});

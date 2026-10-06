@@ -6,4 +6,4 @@
   folder: 
 CMD*/
 Bot.sendMessage("Send Channel ID and User ID to promote.\nExample:\n`-100123456789 987654321`");
-Bot.runCommand("WaitPromote");
+Bot.run({command: "WaitPromote"});
