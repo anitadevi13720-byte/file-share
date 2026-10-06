@@ -31,8 +31,9 @@ if(fileParam){
     }
 } else {
     let btns = [
-       [{title: "🟢 Clone Bot", command: "/clone"}],
+       [{title: "📤 Upload File", command: "/upload"}],
+       [{title: "🤖 Clone Bot (Make your own bot)", command: "/clone"}],
        [{title: "🔵 Support", url: "https://t.me/technicalKali"}]
     ];
-    Bot.sendInlineKeyboard(btns, "👋 *Welcome to File Sharing Bot!*\n\nSend or forward me any file, photo, or video, and I will generate a shareable link for it.");
+    Bot.sendInlineKeyboard(btns, "👋 *Welcome to File Sharing Bot!*\n\nI can securely store your files and generate shareable links.\n\n👇 **Click 'Upload File' or just send any file here!**");
 }
